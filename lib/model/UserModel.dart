@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final user = userFromJson(jsonString);
-
 import 'dart:convert';
 
 User userFromJson(String str) => User.fromJson(json.decode(str));
@@ -10,9 +6,9 @@ String userToJson(User data) => json.encode(data.toJson());
 
 class User {
   User({
-    this.status,
-    this.message,
-    this.data,
+    required this.status,
+    required this.message,
+    required this.data,
   });
 
   int status;
@@ -44,14 +40,14 @@ class Datum {
     this.image,
   });
 
-  int id;
-  String name;
-  String email;
-  String role;
-  dynamic emailVerifiedAt;
-  DateTime createdAt;
-  DateTime updatedAt;
-  dynamic image;
+  int? id;
+  String? name;
+  String? email;
+  String? role;
+  dynamic? emailVerifiedAt;
+  DateTime? createdAt;
+  DateTime? updatedAt;
+  dynamic? image;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
@@ -70,8 +66,8 @@ class Datum {
         "email": email,
         "role": role,
         "email_verified_at": emailVerifiedAt,
-        "created_at": createdAt.toIso8601String(),
-        "updated_at": updatedAt.toIso8601String(),
+        "created_at": createdAt?.toIso8601String(),
+        "updated_at": updatedAt?.toIso8601String(),
         "image": image,
       };
 }
